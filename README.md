@@ -1,5 +1,5 @@
 # Step Sequencer Application
-> Sequences steps and play them back
+> Sequences steps and play them back.
 > Try it yourself at http://sanderzhanni.net/SequencerApplication/
 
 You can edit and play back music. A step sequencer sequences steps in a beat and plays it back in a 4/4 time signature.
