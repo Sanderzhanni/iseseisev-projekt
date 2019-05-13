@@ -1,0 +1,19 @@
+{
+  "author":"Sander Hanni",
+  "background_color": "#ffffff",
+  "description":"sequencer app",
+  "short_name": "Sequencer",
+  "name": "Sequencer App",
+  "icons": [
+    {
+      "src":"icon.jpeg",
+      "sizes": "255x255",
+      "type": "image/jpeg"
+    }
+  ],
+  "start_url": "http://localhost/Index/sequencer/index.html",
+  "Theme_color": "#ffffff",
+  "display": "fullscreen",
+  "orientation":"portrait",
+  "version":"0.1"
+}

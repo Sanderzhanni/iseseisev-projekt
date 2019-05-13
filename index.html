@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en" manifest="cache.manifest">
+<head>
+  <link rel="manifest" href="manifest.json">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel='stylesheet' type='text/css' href='style.css'>
+  <title>Sequencer application</title>
+</head>
+
+<body>
+<div class="container">
+  <h1>Sequencer</h1>
+  <hr>
+  <button class= "controlButtons" id="start">Start</button>
+  <button class= "controlButtons" id="pause">Pause</button>
+  <button class= "controlButtons" id="reset">Reset</button>
+  <button class= "controlButtons" id="stop">Stop</button>
+  <hr>
+  <div id="light" class="light">
+    <input id="l1" type="checkbox" onclick="return false;">
+    <input id="l2" type="checkbox" onclick="return false;">
+    <input id="l3" type="checkbox" onclick="return false;">
+    <input id="l4" type="checkbox" onclick="return false;">
+    <input id="l5" type="checkbox" onclick="return false;">
+    <input id="l6" type="checkbox" onclick="return false;">
+    <input id="l7" type="checkbox" onclick="return false;">
+    <input id="l8" type="checkbox" onclick="return false;">
+    <input id="l9" type="checkbox" onclick="return false;">
+    <input id="l10" type="checkbox" onclick="return false;">
+    <input id="l11" type="checkbox" onclick="return false;">
+    <input id="l12" type="checkbox" onclick="return false;">
+    <input id="l13" type="checkbox" onclick="return false;">
+    <input id="l14" type="checkbox" onclick="return false;">
+    <input id="l15" type="checkbox" onclick="return false;">
+    <input id="l16" type="checkbox" onclick="return false;">
+  </div>
+  <hr>
+  <div class="slidecontainer">
+    <h3>Tempo</h3>
+    <input type="range" min="30" max="240" value="120" class="slider" id="tempo">
+    <output id="tempoValue">Tempo</output>
+
+    <h3>Reverb</h3>
+    <input type="range" min="0" max="100" value="0" class="slider" id="reverb">
+    <output id="reverbValue">Reverb</output>
+
+    <h3>Distortion</h3>
+    <input type="range" min="0" max="100" value="0" class="slider" id="distor">
+    <output id="distorValue">Distortion</output>
+  </div>
+
+  <div class="drumControls">
+    <h2>Drums</h2>
+    <div class="dropdown">
+      <button onclick="showStyles()" class="dropbtn">Styles</button>
+      <div id="myDropdown" class="dropdown-content">
+        <button onclick="clearDrums()" class="dropbtn2">Default</button>
+        <button onclick="style1()" class="dropbtn2">Style 1</button>
+        <button onclick="style2()" class="dropbtn2">Style 2</button>
+        <button onclick="style3()" class="dropbtn2">Style 3</button>
+      </div>
+    </div>
+    <button onclick="toggleClass5()" class="muteButtonDrums" id="muteDrums">Mute</button>
+  </div>
+
+  <div class="drums">
+    <div id="kick" class="kick">
+      <input id="k1" type="checkbox">
+      <input id="k2" type="checkbox">
+      <input id="k3" type="checkbox">
+      <input id="k4" type="checkbox">
+      <input id="k5" type="checkbox">
+      <input id="k6" type="checkbox">
+      <input id="k7" type="checkbox">
+      <input id="k8" type="checkbox">
+      <input id="k9" type="checkbox">
+      <input id="k10" type="checkbox">
+      <input id="k11" type="checkbox">
+      <input id="k12" type="checkbox">
+      <input id="k13" type="checkbox">
+      <input id="k14" type="checkbox">
+      <input id="k15" type="checkbox">
+      <input id="k16" type="checkbox">
+      <button onclick ="toggleClass()" class="muteButton" id="muteKick">mute</button>
+      <input type="range" min="-40" max="10" value="0" class="sliderVolume" id="volumeKick">
+      <output class="drumsOutput" id="kickValue"></output>
+    </div>
+    <br>
+    <div id="snare" class="snare">
+      <input id="s1" type="checkbox">
+      <input id="s2" type="checkbox">
+      <input id="s3" type="checkbox">
+      <input id="s4" type="checkbox">
+      <input id="s5" type="checkbox">
+      <input id="s6" type="checkbox">
+      <input id="s7" type="checkbox">
+      <input id="s8" type="checkbox">
+      <input id="s9" type="checkbox">
+      <input id="s10" type="checkbox">
+      <input id="s11" type="checkbox">
+      <input id="s12" type="checkbox">
+      <input id="s13" type="checkbox">
+      <input id="s14" type="checkbox">
+      <input id="s15" type="checkbox">
+      <input id="s16" type="checkbox">
+      <button onclick ="toggleClass2()" class="muteButton" id="muteSnare">mute</button>
+      <input type="range" min="-40" max="10" value="0" class="sliderVolume" id="volumeSnare">
+      <output class="drumsOutput" id="snareValue"></output>
+    </div>
+    <br>
+    <div id="hihat" class="hihat">
+      <input id="h1" tabindex="2" type="checkbox">
+      <input id="h2" type="checkbox">
+      <input id="h3" type="checkbox">
+      <input id="h4" type="checkbox">
+      <input id="h5" type="checkbox">
+      <input id="h6" type="checkbox">
+      <input id="h7" type="checkbox">
+      <input id="h8" type="checkbox">
+      <input id="h9" type="checkbox">
+      <input id="h10" type="checkbox">
+      <input id="h11" type="checkbox">
+      <input id="h12" type="checkbox">
+      <input id="h13" type="checkbox">
+      <input id="h14" type="checkbox">
+      <input id="h15" type="checkbox">
+      <input id="h16" type="checkbox">
+      <button onclick ="toggleClass3()" class="muteButton" id="muteHihat">mute</button>
+      <input type="range" min="-40" max="10" value="0" class="sliderVolume" id="volumeHihat">
+      <output class="drumsOutput" id="hihatValue"></output>
+    </div>
+    <br>
+    <div id="tom"class="tom">
+      <input id="t1" type="checkbox">
+      <input id="t2" type="checkbox">
+      <input id="t3" type="checkbox">
+      <input id="t4" type="checkbox">
+      <input id="t5" type="checkbox">
+      <input id="t6" type="checkbox">
+      <input id="t7" type="checkbox">
+      <input id="t8" type="checkbox">
+      <input id="t9" type="checkbox">
+      <input id="t10" type="checkbox">
+      <input id="t11" type="checkbox">
+      <input id="t12" type="checkbox">
+      <input id="t13" type="checkbox">
+      <input id="t14" type="checkbox">
+      <input id="t15" type="checkbox">
+      <input id="t16" type="checkbox">
+      <button onclick ="toggleClass4()" class="muteButton" id="muteTom">mute</button>
+      <input type="range" min="-40" max="10" value="0" class="sliderVolume" id="volumeTom">
+      <output class="drumsOutput" id="tomValue"></output>
+    </div>
+  </div>
+
+  <div class="celloControls">
+    <h2>Cello</h2>
+    <h3>Audio</h3>
+    <input type="range" min="-40" max="10" value="0" class="sliderVolumeCello" id="volumeCello">
+    <button class = "muteButtonDrums"id="clearCello">Clear</button>
+  </div>
+
+  <div class="cello">
+    <div id="celloA2" class="cA2">
+      <input type="checkbox">
+      <input type="checkbox">
+      <input type="checkbox">
+      <input type="checkbox">
+      <input type="checkbox">
+      <input type="checkbox">
+      <input type="checkbox">
+      <input type="checkbox">
+      <input type="checkbox">
+      <input type="checkbox">
+      <input type="checkbox">
+      <input type="checkbox">
+      <input type="checkbox">
+      <input type="checkbox">
+      <input type="checkbox">
+      <input type="checkbox">
+    </div>
+    <br>
+    <div id="celloB2" class="cB2">
+      <input type="checkbox">
+      <input type="checkbox">
+      <input type="checkbox">
+      <input type="checkbox">
+      <input type="checkbox">
+      <input type="checkbox">
+      <input type="checkbox">
+      <input type="checkbox">
+      <input type="checkbox">
+      <input type="checkbox">
+      <input type="checkbox">
+      <input type="checkbox">
+      <input type="checkbox">
+      <input type="checkbox">
+      <input type="checkbox">
+      <input type="checkbox">
+    </div>
+    <br>
+    <div id="celloC3" class="cC3">
+      <input type="checkbox">
+      <input type="checkbox">
+      <input type="checkbox">
+      <input type="checkbox">
+      <input type="checkbox">
+      <input type="checkbox">
+      <input type="checkbox">
+      <input type="checkbox">
+      <input type="checkbox">
+      <input type="checkbox">
+      <input type="checkbox">
+      <input type="checkbox">
+      <input type="checkbox">
+      <input type="checkbox">
+      <input type="checkbox">
+      <input type="checkbox">
+    </div>
+    <br>
+    <div id="celloD3" class="cD3">
+      <input type="checkbox">
+      <input type="checkbox">
+      <input type="checkbox">
+      <input type="checkbox">
+      <input type="checkbox">
+      <input type="checkbox">
+      <input type="checkbox">
+      <input type="checkbox">
+      <input type="checkbox">
+      <input type="checkbox">
+      <input type="checkbox">
+      <input type="checkbox">
+      <input type="checkbox">
+      <input type="checkbox">
+      <input type="checkbox">
+      <input type="checkbox">
+    </div>
+    <br>
+    <div id="celloE3" class="cE3">
+      <input type="checkbox">
+      <input type="checkbox">
+      <input type="checkbox">
+      <input type="checkbox">
+      <input type="checkbox">
+      <input type="checkbox">
+      <input type="checkbox">
+      <input type="checkbox">
+      <input type="checkbox">
+      <input type="checkbox">
+      <input type="checkbox">
+      <input type="checkbox">
+      <input type="checkbox">
+      <input type="checkbox">
+      <input type="checkbox">
+      <input type="checkbox">
+    </div>
+    <br>
+    <div id="celloF3" class="cF3">
+      <input type="checkbox">
+      <input type="checkbox">
+      <input type="checkbox">
+      <input type="checkbox">
+      <input type="checkbox">
+      <input type="checkbox">
+      <input type="checkbox">
+      <input type="checkbox">
+      <input type="checkbox">
+      <input type="checkbox">
+      <input type="checkbox">
+      <input type="checkbox">
+      <input type="checkbox">
+      <input type="checkbox">
+      <input type="checkbox">
+      <input type="checkbox">
+    </div>
+    <br>
+    <div id="celloG3" class="cG3">
+      <input type="checkbox">
+      <input type="checkbox">
+      <input type="checkbox">
+      <input type="checkbox">
+      <input type="checkbox">
+      <input type="checkbox">
+      <input type="checkbox">
+      <input type="checkbox">
+      <input type="checkbox">
+      <input type="checkbox">
+      <input type="checkbox">
+      <input type="checkbox">
+      <input type="checkbox">
+      <input type="checkbox">
+      <input type="checkbox">
+      <input type="checkbox">
+    </div>
+    <br>
+    <div id="celloA3" class="cA3">
+      <input type="checkbox">
+      <input type="checkbox">
+      <input type="checkbox">
+      <input type="checkbox">
+      <input type="checkbox">
+      <input type="checkbox">
+      <input type="checkbox">
+      <input type="checkbox">
+      <input type="checkbox">
+      <input type="checkbox">
+      <input type="checkbox">
+      <input type="checkbox">
+      <input type="checkbox">
+      <input type="checkbox">
+      <input type="checkbox">
+      <input type="checkbox">
+    </div>
+  </div>
+  <br>
+  <div id="pianoContainer">
+    <h2>Piano</h2>
+    <div class="piano">
+      <button class="white-key C4-key"></button>
+      <button class="black-key Db4-key"></button>
+      <button class="white-key D4-key"></button>
+      <button class="black-key Eb4-key"></button>
+      <button class="white-key E4-key"></button>
+      <button class="white-key F4-key"></button>
+      <button class="black-key Gb4-key"></button>
+      <button class="white-key G4-key"></button>
+      <button class="black-key Ab4-key"></button>
+      <button class="white-key A4-key"></button>
+      <button class="black-key Bb4-key"></button>
+      <button class="white-key B4-key"></button>
+      <button class="white-key C5-key"></button>
+      <button class="black-key Db5-key"></button>
+      <button class="white-key D5-key"></button>
+      <button class="black-key Eb5-key"></button>
+      <button class="white-key E5-key"></button>
+    </div>
+  </div>
+
+</div>
+
+<script src="Tone.js"></script>
+<script src="index.js"></script>
+<script>
+ if ('serviceWorker' in navigator) {
+    //console.log("Will the service worker register?");
+    navigator.serviceWorker.register('service-worker.js')
+      .then(function(reg){
+        //console.log("Yes, it did.");
+     }).catch(function(err) {
+        //console.log("No it didn't. This happened:", err)
+    });
+ }
+</script>
+</body>
+</html>
