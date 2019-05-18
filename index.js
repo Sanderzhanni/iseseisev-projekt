@@ -33,7 +33,7 @@ document.documentElement.addEventListener('mousedown', () => {
 
 //Sliderite deklareerimine
 let tempoSlider = document.getElementById("tempo");
-var tempoValue = document.getElementById("tempoValue");
+let tempoValue = document.getElementById("tempoValue");
 tempoValue.innerHTML = tempoSlider.value + " bpm"; // Display the default slider value
 // Update the current slider value (each time you drag the slider handle)
 tempoSlider.oninput = function() {
@@ -41,35 +41,35 @@ tempoSlider.oninput = function() {
 };
 
 let reverbSlider = document.getElementById("reverb");
-var reverbValue = document.getElementById("reverbValue");
+let reverbValue = document.getElementById("reverbValue");
 reverbValue.innerHTML = reverbSlider.value;
 reverbSlider.oninput = function() {
   reverbValue.innerHTML = this.value;
 };
 
 let distorSlider = document.getElementById("distor");
-var distorValue = document.getElementById("distorValue");
+let distorValue = document.getElementById("distorValue");
 distorValue.innerHTML = distorSlider.value;
 distorSlider.oninput = function() {
   distorValue.innerHTML = this.value;
 };
 
 let kickSlider = document.getElementById("volumeKick");
-var kickValue = document.getElementById("kickValue");
+let kickValue = document.getElementById("kickValue");
 kickValue.innerHTML = kickSlider.value + " dB";
 kickSlider.oninput = function() {
   kickValue.innerHTML = this.value + " dB";
 };
 
 let snareSlider = document.getElementById("volumeSnare");
-var snareValue = document.getElementById("snareValue");
+let snareValue = document.getElementById("snareValue");
 snareValue.innerHTML = snareSlider.value + " dB";
 snareSlider.oninput = function() {
   snareValue.innerHTML = this.value + " dB";
 };
 
 let hihatSlider = document.getElementById("volumeHihat");
-var hihatValue = document.getElementById("hihatValue");
+let hihatValue = document.getElementById("hihatValue");
 hihatValue.innerHTML = hihatSlider.value + " dB";
 hihatSlider.oninput = function() {
   hihatValue.innerHTML = this.value + " dB";
@@ -158,7 +158,7 @@ function sequencer(){
     document.getElementById(lights[step]).checked=true;
     setTimeout(function() {
         document.getElementById(lights[step]).checked=false;
-    }, 130);
+    }, 250 - tempoSlider.value);
 
 
     //Kui on checkbox checked, siis mängitakse heli
@@ -642,8 +642,8 @@ window.onclick = function(event) {
 //Saadud aadressilt:
 //https://gist.github.com/randell/2436981
 function clearChildren(element) {
-   for (var i = 0; i < element.childNodes.length; i++) {
-      var e = element.childNodes[i];
+   for (let i = 0; i < element.childNodes.length; i++) {
+      let e = element.childNodes[i];
       if (e.tagName) switch (e.tagName.toLowerCase()) {
          case 'input':
             switch (e.type) {
@@ -664,23 +664,23 @@ function clearChildren(element) {
 
 //Vahetab klasse, kui mute nuppude peale vajutada.
 function toggleClass(){
-  var element = document.getElementById("muteKick");
+  let element = document.getElementById("muteKick");
   element.classList.toggle("mystyle");
 }
 function toggleClass2(){
-  var element = document.getElementById("muteSnare");
+  let element = document.getElementById("muteSnare");
   element.classList.toggle("mystyle");
 }
 function toggleClass3(){
-  var element = document.getElementById("muteHihat");
+  let element = document.getElementById("muteHihat");
   element.classList.toggle("mystyle");
 }
 function toggleClass4(){
-  var element = document.getElementById("muteTom");
+  let element = document.getElementById("muteTom");
   element.classList.toggle("mystyle");
 }
 function toggleClass5(){
-  var element = document.getElementById("muteDrums");
+  let element = document.getElementById("muteDrums");
   element.classList.toggle("mystyle");
 }
 
